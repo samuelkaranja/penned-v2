@@ -1,0 +1,104 @@
+.nav {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 10px 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav .pen {
+  color: #000;
+}
+
+.nav svg {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.nav .logo {
+  color: #000;
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: underline;
+  padding: 20px 0;
+}
+
+.nav .create {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 20px 0;
+}
+
+.nav .create:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.nav .welcome {
+  color: #000;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 8px;
+}
+
+.nav .user-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav .login {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #030712;
+  padding: 8px 15px;
+  margin: 0 10px;
+}
+
+.nav .signup {
+  background: #030712;
+  border: 1px solid #030712;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #f9fafb;
+  padding: 8px 15px;
+}
+
+.nav .logged-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav .logout {
+  background: orangered;
+  width: 80px;
+  margin-left: 20px;
+  border: 1px solid none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  padding: 8px;
+}
+
+/* ........... Tablet ..............*/
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .nav {
+    padding: 10px 20px 20px 20px;
+  }
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .nav {
+    padding: 10px 20px 20px 20px;
+  }
+}

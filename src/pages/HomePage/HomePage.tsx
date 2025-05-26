@@ -1,10 +1,11 @@
 import React from "react";
 import "./homepage.css";
+import { NavBar } from "../../components";
 
 const HomePage: React.FC = () => {
   return (
     <div className="homepage">
-      <h2>Home Page</h2>
+      <NavBar />
     </div>
   );
 };
