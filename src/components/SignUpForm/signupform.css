@@ -1,0 +1,73 @@
+.signupform {
+  display: grid;
+  place-items: center;
+}
+
+.signupform .frm {
+  margin-bottom: 20px;
+}
+
+.signupform label {
+  display: block;
+  padding-bottom: 15px;
+  font-size: 15px;
+  color: #000;
+  text-align: left;
+}
+
+.signupform input[type="text"],
+.signupform input[type="email"],
+.signupform input[type="password"] {
+  display: block;
+  width: 350px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428;
+  color: #000;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+input:focus {
+  border: 1px solid green;
+  outline: none;
+}
+
+.signupform button {
+  width: 100%;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.alert {
+  color: red;
+  margin: 0;
+  padding: 2px 0;
+  font-size: 14px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.option {
+  margin-top: 20px;
+}
+
+.option span {
+  color: #000;
+  padding-right: 5px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.option a {
+  color: blue;
+  text-decoration: underline;
+}
