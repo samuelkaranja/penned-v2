@@ -1,0 +1,31 @@
+.home {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.home .archive {
+  margin-top: 80px;
+}
+
+.home .archive h2 {
+  font-size: 28x;
+  color: #000;
+  text-align: left;
+  text-decoration: underline;
+}
+
+/* ........... Tablet ..............*/
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .home .archive {
+    margin: 0 15px;
+  }
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .home .archive {
+    margin: 0 15px;
+  }
+}

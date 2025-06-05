@@ -1,12 +1,16 @@
 import React from "react";
+import { NavBar, Banner, Search } from "../../components";
 import "./homepage.css";
-import { NavBar, Banner } from "../../components";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="homepage">
+    <div className="home">
       <NavBar />
       <Banner />
+      <div className="archive">
+        <h2>Posts</h2>
+        <Search />
+      </div>
     </div>
   );
 };
