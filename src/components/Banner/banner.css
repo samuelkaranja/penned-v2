@@ -1,0 +1,38 @@
+.banner {
+  height: 30vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #000;
+}
+
+.banner .banner-text {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.banner .banner-text span {
+  font-size: 50px;
+  font-weight: 800;
+}
+
+/* ........... Tablet ..............*/
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .banner .banner-text {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .banner .banner-text {
+    max-width: 85%;
+  }
+
+  .banner .banner-text span {
+    line-height: 1.2;
+  }
+}

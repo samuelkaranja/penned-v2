@@ -1,0 +1,35 @@
+.subscribe input {
+  width: 95%;
+  background-color: rgb(249 250 251);
+  color: #000;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+}
+
+.subscribe input:focus {
+  outline: none;
+  border: none;
+}
+
+.subscribe .btn {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+}
+
+.subscribe .message {
+  color: orange;
+  font-weight: 400;
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .subscribe .message {
+    font-size: 14px;
+  }
+}
