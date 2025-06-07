@@ -1,7 +1,9 @@
 import React from "react";
-import "./navbar.css";
 import { FaPenFancy } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import profile from "../../assets/code.jpg";
+import "./navbar.css";
+
 const NavBar: React.FC = () => {
   return (
     <div className="nav">
@@ -31,7 +33,7 @@ const NavBar: React.FC = () => {
             Welcome, <Link to="/profile">Samuel</Link>
           </span>
 
-          <img src="" className="user-image" />
+          <img src={profile} className="user-image" />
 
           <button className="logout">Logout</button>
         </div>
