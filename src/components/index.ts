@@ -8,3 +8,4 @@ export { default as Search } from "./Search/Search";
 export { default as PostList } from "./PostList/PostList";
 //export { default as Post } from "./Post/Post";
 export { default as SignUpForm } from "./SignUpForm/SignUpForm";
+export { default as Footer } from "./Footer/Footer";

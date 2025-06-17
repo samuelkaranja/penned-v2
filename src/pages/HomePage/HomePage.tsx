@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar, Banner, Search, PostList } from "../../components";
+import { NavBar, Banner, Search, PostList, Footer } from "../../components";
 import "./homepage.css";
 
 const HomePage: React.FC = () => {
@@ -12,6 +12,7 @@ const HomePage: React.FC = () => {
         <Search />
         <PostList />
       </div>
+      <Footer />
     </div>
   );
 };
