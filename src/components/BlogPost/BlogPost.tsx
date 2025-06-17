@@ -26,7 +26,7 @@ const BlogPost: React.FC<Prop> = ({ post }) => {
             <CiHeart />
           </small>
         </div>
-        <Link to="/" className="title">
+        <Link to={`/details/${post.id}`} className="title">
           {post?.title}
         </Link>
         <p className="subtitle">

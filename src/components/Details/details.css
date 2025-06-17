@@ -1,0 +1,90 @@
+.details {
+  max-width: 1170px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.details .more {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #000000;
+}
+
+.details .more .blog-header .title {
+  display: block;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: underline;
+}
+
+.details .more .blog-header .subtitle {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Helvetica", Arial, sans-serif;
+  line-height: 1.75rem;
+  margin: 0;
+  padding: 5px 0 15px 0;
+  color: #3e3e3e;
+}
+
+.details .author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details .more .author small {
+  display: block;
+}
+
+.details .author .social ul {
+  list-style-type: none;
+}
+
+.details .author .social ul li {
+  display: inline-block;
+  padding: 0 12px;
+}
+
+.details .author .social ul li svg {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.details .more .image img {
+  width: 100%;
+  height: 45vh;
+  object-fit: cover;
+  margin: 15px 0 5px 0;
+}
+
+.details .more .details p {
+  line-height: 1.75;
+  color: #030712;
+}
+
+/* ........... Tablet ..............*/
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .details .more .image img {
+    height: 50vh;
+  }
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .details {
+    padding: 0 20px;
+  }
+
+  .details .author .social ul li {
+    padding: 0 8px;
+  }
+
+  .details .author .social ul li svg {
+    font-size: 18px;
+  }
+}
