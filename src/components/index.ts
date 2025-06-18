@@ -9,4 +9,5 @@ export { default as PostList } from "./PostList/PostList";
 export { default as Details } from "./Details/Details";
 //export { default as Post } from "./Post/Post";
 export { default as SignUpForm } from "./SignUpForm/SignUpForm";
+export { default as LoginForm } from "./LoginForm/LoginForm";
 export { default as Footer } from "./Footer/Footer";

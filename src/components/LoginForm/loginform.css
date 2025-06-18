@@ -1,0 +1,78 @@
+.loginform {
+  text-align: center;
+}
+
+.loginform form {
+  display: inline-block;
+  text-align: left; /* keeps the text inside left-aligned */
+  margin: 20px 0;
+}
+
+.frm {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  padding: 15px 0 10px 0;
+  font-size: 14px;
+  color: #000;
+}
+
+.loginform input[type="text"],
+.loginform input[type="email"],
+.loginform input[type="password"] {
+  display: block;
+  width: 350px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428;
+  color: #fff;
+  background-color: #fff;
+  border: 1px solid #3b2626;
+  border-radius: 5px;
+}
+
+input:focus {
+  border: 1px solid green;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.alert {
+  color: red;
+  margin: 0;
+  padding: 2px 0;
+  font-size: 14px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.link-options .reset-password a {
+  margin-bottom: 10px;
+  color: blue;
+}
+
+.link-options .sign-up a {
+  color: blue;
+}
+
+.link-options span {
+  color: #000;
+}
+
+.link-options a {
+  text-decoration: underline;
+}
