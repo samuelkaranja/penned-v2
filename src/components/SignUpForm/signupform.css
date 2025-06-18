@@ -9,7 +9,7 @@
 
 .signupform label {
   display: block;
-  padding-bottom: 15px;
+  padding: 15px 0 10px 0;
   font-size: 15px;
   color: #000;
   text-align: left;
@@ -26,7 +26,7 @@
   color: #000;
   border: 1px solid lightgrey;
   border-radius: 5px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   background-color: #fff;
 }
 
@@ -36,6 +36,7 @@ input:focus {
 }
 
 .signupform button {
+  position: relative;
   width: 100%;
   background-color: green;
   border: none;
@@ -43,6 +44,29 @@ input:focus {
   color: #fff;
   padding: 10px;
   font-size: 14px;
+  margin-top: 20px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid #fff;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .alert {

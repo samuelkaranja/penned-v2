@@ -7,14 +7,14 @@ function App() {
   return (
     <>
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/details/:id" element={<DetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/sign-up" element={<SignUpPage />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   );

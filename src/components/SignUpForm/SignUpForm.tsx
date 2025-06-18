@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signupform.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
@@ -6,13 +6,30 @@ import { Link } from "react-router-dom";
 const SignUpForm: React.FC = () => {
   const {
     register,
+    handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
 
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (data: any) => {
+    setLoading(true);
+    try {
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      console.log("Form Submitted:", data);
+      // Show success, redirect, etc.
+    } catch (error) {
+      console.error("Submission error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="signupform">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="frm">
           <label htmlFor="fullname">Full Name</label>
           <input
@@ -82,7 +99,9 @@ const SignUpForm: React.FC = () => {
             <p className="alert">{errors.confirmPassword.message}</p>
           )}
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={loading}>
+          {loading ? <span className="loader"></span> : "Sign Up"}
+        </button>
       </form>
       <div className="option">
         <span>Already have an Account?</span>

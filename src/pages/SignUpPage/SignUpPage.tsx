@@ -1,6 +1,7 @@
 import React from "react";
 import "./signuppage.css";
 import { SignUpForm } from "../../components";
+import Image from "../../assets/blog1.jpg";
 
 const SignUpPage: React.FC = () => {
   return (
@@ -10,7 +11,9 @@ const SignUpPage: React.FC = () => {
           <h2>Create Account</h2>
           <SignUpForm />
         </div>
-        <div className="image">{/* <img src={Image} alt="" /> */}</div>
+        <div className="image">
+          <img src={Image} alt="" />
+        </div>
       </div>
     </div>
   );
