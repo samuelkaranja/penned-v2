@@ -1,34 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./signupform.css";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../store/store";
+import { signUpUser } from "../../store/slices/features/auth/authSlice";
+import { toast } from "react-toastify";
+
+type FormValues = {
+  fullname: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 
 const SignUpForm: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { user, loading, error } = useSelector(
+    (state: RootState) => state.auth
+  );
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormValues>();
 
-  const [loading, setLoading] = useState(false);
+  const onSubmit = async (data: FormValues) => {
+    const { confirmPassword, ...userData } = data;
 
-  const onSubmit = async (data: any) => {
-    setLoading(true);
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Form Submitted:", data);
-      // Show success, redirect, etc.
-    } catch (error) {
-      console.error("Submission error:", error);
-    } finally {
-      setLoading(false);
-    }
+    dispatch(signUpUser(userData));
   };
+
+  useEffect(() => {
+    if (user && !loading && !error) {
+      toast.success("Registration successful! Please log in.");
+      setTimeout(() => navigate("/login"), 2000);
+    }
+  }, [user, loading, error, navigate]);
 
   return (
     <div className="signupform">
+      {error && (
+        <p
+          style={{
+            fontSize: 15,
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "red",
+            margin: 0,
+          }}
+        >
+          {error}
+        </p>
+      )}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="frm">
           <label htmlFor="fullname">Full Name</label>
@@ -99,6 +127,7 @@ const SignUpForm: React.FC = () => {
             <p className="alert">{errors.confirmPassword.message}</p>
           )}
         </div>
+
         <button type="submit" disabled={loading}>
           {loading ? <span className="loader"></span> : "Sign Up"}
         </button>

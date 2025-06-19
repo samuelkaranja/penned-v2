@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPenFancy } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import profile from "../../assets/code.jpg";
+//import profile from "../../assets/code.jpg";
 import "./navbar.css";
 
 const NavBar: React.FC = () => {
@@ -14,17 +14,17 @@ const NavBar: React.FC = () => {
         </Link>
       </div>
       <div className="nav_links">
-        {/* <>
+        <>
           <Link to="/login" className="login">
             Login
           </Link>
 
-          <Link to="/sign-up" className="signup">
+          <Link to="/signup" className="signup">
             SignUp
           </Link>
-        </> */}
+        </>
 
-        <div className="logged-in">
+        {/* <div className="logged-in">
           <Link to="/create-post" className="create">
             Create Post
           </Link>
@@ -36,7 +36,7 @@ const NavBar: React.FC = () => {
           <img src={profile} className="user-image" />
 
           <button className="logout">Logout</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
