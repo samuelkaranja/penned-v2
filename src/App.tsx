@@ -1,22 +1,52 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { DetailsPage, HomePage, LoginPage, SignUpPage } from "./pages";
-//import { Footer, NavBar } from "./components";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
+import { MainLayout, PrivateRoute, PublicRoute } from "./components";
 
 function App() {
   return (
     <>
       <ToastContainer position="top-center" autoClose={5000} />
       <Router>
-        {/* <NavBar /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/details/:id" element={<DetailsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/details/:id"
+              element={
+                <PrivateRoute>
+                  <DetailsPage />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <SignUpPage />
+              </PublicRoute>
+            }
+          />
+
+          {/* Catch-all route for non-existent URLs */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-        {/* <Footer /> */}
       </Router>
     </>
   );

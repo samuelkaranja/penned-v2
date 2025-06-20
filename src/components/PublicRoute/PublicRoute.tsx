@@ -1,18 +1,16 @@
-//import { useContext } from "react";
 import type { ReactNode } from "react";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-//import { GlobalContext } from "../../context/context";
-
-const accessToken = "fndjfndjnjdfncjdfbvjdfnssjnjk";
+import type { RootState } from "../../store/store";
 
 interface PublicRouteProps {
   children: ReactNode;
 }
 
 const PublicRoute = ({ children }: PublicRouteProps) => {
-  //const { accessToken } = useContext(GlobalContext);
+  const { token } = useSelector((state: RootState) => state.auth);
 
-  return accessToken ? <Navigate to="/" replace /> : children;
+  return token ? <Navigate to="/" replace /> : children;
 };
 
 export default PublicRoute;
