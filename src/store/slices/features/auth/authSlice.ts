@@ -26,22 +26,9 @@ interface AuthState {
   error: string | null;
 }
 
-// interface User {
-//   fullname: string;
-//   username: string;
-//   email: string;
-//   password: string;
-// }
-
-// interface UserState {
-//   user: User | null;
-//   loading: boolean;
-//   error: string | null;
-// }
-
 const initialState: AuthState = {
-  user: null,
-  token: null,
+  user: JSON.parse(localStorage.getItem("user") || "null"),
+  token: localStorage.getItem("token"),
   loading: false,
   error: null,
 };
@@ -57,7 +44,8 @@ export const signUpUser = createAsyncThunk<
       "http://localhost:3000/auth/signup",
       userData
     );
-    return response.data.user;
+    console.log("User:", response.data);
+    return response.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
       error.response?.data?.message || "Signup failed"
@@ -80,6 +68,7 @@ export const loginUser = createAsyncThunk<
     console.log("User", user);
     console.log("Token", access_token);
     localStorage.setItem("token", access_token);
+    localStorage.setItem("user", JSON.stringify(user));
     return { token: access_token, user };
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
@@ -98,6 +87,7 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = null;
       localStorage.removeItem("token");
+      localStorage.removeItem("user");
     },
   },
   extraReducers: (builder) => {

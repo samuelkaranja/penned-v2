@@ -81,7 +81,7 @@ const LoginForm: React.FC = () => {
         </div>
         <div className="sign-up">
           <span>Don't have an account? </span>
-          <Link to="/sign-up">Sign Up</Link>
+          <Link to="/signup">Sign Up</Link>
         </div>
       </div>
     </div>

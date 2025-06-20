@@ -1,14 +1,15 @@
 import React from "react";
 import { FaPenFancy } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-//import profile from "../../assets/code.jpg";
+import profile from "../../assets/code.jpg";
 import "./navbar.css";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../store/store";
 import { logout } from "../../store/slices/features/auth/authSlice";
 
 const NavBar: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { token, user } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -25,31 +26,33 @@ const NavBar: React.FC = () => {
         </Link>
       </div>
       <div className="nav_links">
-        {/* <>
-          <Link to="/login" className="login">
-            Login
-          </Link>
+        {token ? (
+          <div className="logged-in">
+            <Link to="/create-post" className="create">
+              Create Post
+            </Link>
 
-          <Link to="/signup" className="signup">
-            SignUp
-          </Link>
-        </> */}
+            <span className="welcome">
+              Welcome, <Link to="/profile">{user?.username}</Link>
+            </span>
 
-        <div className="logged-in">
-          {/* <Link to="/create-post" className="create">
-            Create Post
-          </Link>
+            <img src={profile} className="user-image" />
 
-          <span className="welcome">
-            Welcome, <Link to="/profile">Samuel</Link>
-          </span>
+            <button className="logout" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="logged-out">
+            <Link to="/login" className="login">
+              Login
+            </Link>
 
-          <img src={profile} className="user-image" /> */}
-
-          <button className="logout" onClick={handleLogout}>
-            Logout
-          </button>
-        </div>
+            <Link to="/signup" className="signup">
+              SignUp
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
