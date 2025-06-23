@@ -1,0 +1,84 @@
+.createpost {
+  width: 1170px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.createpost .success {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: orange;
+}
+
+.createpost .frm {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.createpost label {
+  display: block;
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.createpost input {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  color: #000;
+  background-color: #fff;
+}
+
+.createpost input:focus {
+  outline: none;
+  border: 1px solid lightgrey;
+}
+
+.createpost textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  font-family: "Helvetica", Arial, sans-serif;
+  line-height: 1.5;
+  color: #000;
+  background-color: #fff;
+}
+
+.createpost textarea:focus {
+  outline: none;
+  border: 1px solid lightgrey;
+}
+
+.createpost .post_btn {
+  display: block;
+  margin: 10px 20px;
+  background: purple;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 25px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* ........... Tablet ..............*/
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .createpost .frm {
+    width: 70%;
+  }
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .createpost .frm {
+    width: 70%;
+    margin: 0 40px;
+  }
+}

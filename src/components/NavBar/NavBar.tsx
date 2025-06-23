@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
       <div className="nav_links">
         {token ? (
           <div className="logged-in">
-            <Link to="/create-post" className="create">
+            <Link to="/createpost" className="create">
               Create Post
             </Link>
 

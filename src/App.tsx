@@ -4,7 +4,14 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { DetailsPage, HomePage, LoginPage, SignUpPage } from "./pages";
+import {
+  CreatePostPage,
+  DetailsPage,
+  HomePage,
+  LoginPage,
+  ProfilePage,
+  SignUpPage,
+} from "./pages";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
 import { MainLayout, PrivateRoute, PublicRoute } from "./components";
@@ -22,6 +29,22 @@ function App() {
               element={
                 <PrivateRoute>
                   <DetailsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/createpost"
+              element={
+                <PrivateRoute>
+                  <CreatePostPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <ProfilePage />
                 </PrivateRoute>
               }
             />
