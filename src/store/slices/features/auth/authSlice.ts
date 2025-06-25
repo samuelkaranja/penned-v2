@@ -17,6 +17,7 @@ interface User {
   id: number;
   email: string;
   username: string;
+  fullname: string;
 }
 
 interface AuthState {
@@ -65,8 +66,6 @@ export const loginUser = createAsyncThunk<
       credentials
     );
     const { access_token, user } = response.data;
-    console.log("User", user);
-    console.log("Token", access_token);
     localStorage.setItem("token", access_token);
     localStorage.setItem("user", JSON.stringify(user));
     return { token: access_token, user };

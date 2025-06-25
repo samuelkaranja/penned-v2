@@ -1,39 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./createpost.css";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../store/store";
 import { createPost } from "../../store/slices/features/post/postSlice";
+import { resetPost } from "../../store/slices/features/post/postSlice";
 import { toast } from "react-toastify";
 
 interface PostFormData {
   title: string;
   subtitle: string;
-  image: FileList | string;
+  image: FileList;
   description: string;
 }
 
 const CreatePost: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const { loading } = useSelector((state: RootState) => state.post);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<PostFormData>();
 
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
+
   const handlePostSubmit = async (data: PostFormData) => {
+    if (!data.image || data.image.length === 0) {
+      toast.error("Image is required.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("subtitle", data.subtitle);
-    formData.append("image", data.image[0]); // first file only
     formData.append("description", data.description);
+    formData.append("image", data.image[0]); // Upload first file
+
+    // Debug: log fields
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
 
     try {
-      await dispatch(createPost(formData as any)).unwrap();
+      await dispatch(createPost(formData)).unwrap();
       toast.success("Post created successfully!");
-      // Optionally reset form or redirect
-    } catch (error) {
-      alert(error || "Failed to create post.");
+      dispatch(resetPost());
+      reset();
+      setPreviewUrl(null);
+    } catch (error: any) {
+      console.error("Post create error:", error);
+      toast.error(error || "Failed to create post.");
+    }
+  };
+
+  const handleImagePreview = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setPreviewUrl(URL.createObjectURL(file));
     }
   };
 
@@ -41,111 +75,62 @@ const CreatePost: React.FC = () => {
     <div className="createpost">
       <div className="frm">
         <form onSubmit={handleSubmit(handlePostSubmit)}>
+          {/* Title */}
           <div>
             <label>Title:</label>
             <input
-              {...register("title", { required: true })}
               type="text"
-              name="title"
-              //   value={formData.title}
-              //   onChange={handleChange}
+              {...register("title", { required: true })}
+              placeholder="Enter post title"
             />
-            {errors.title && errors.title.type === "required" ? (
-              <p
-                style={{
-                  color: "red",
-                  fontSize: "13px",
-                  margin: 0,
-                  textAlign: "left",
-                }}
-              >
-                Titile required
-              </p>
-            ) : null}
+            {errors.title && <p className="error">Title is required</p>}
           </div>
+
+          {/* Subtitle */}
           <div>
             <label>SubTitle:</label>
             <input
-              {...register("subtitle", { required: true })}
               type="text"
-              name="subtitle"
-              //   value={formData.subtitle}
-              //   onChange={handleChange}
+              {...register("subtitle", { required: true })}
+              placeholder="Enter subtitle"
             />
-            {errors.subtitle && errors.subtitle.type === "required" ? (
-              <p
-                style={{
-                  color: "red",
-                  fontSize: "13px",
-                  margin: 0,
-                  textAlign: "left",
-                }}
-              >
-                Subtitle required
-              </p>
-            ) : null}
+            {errors.subtitle && <p className="error">Subtitle is required</p>}
           </div>
+
+          {/* Image Upload */}
           <div>
             <label>Image:</label>
             <input
-              {...register("image", { required: true })}
               type="file"
-              name="image"
               accept="image/*"
-              //   onChange={handleFileChange}
+              {...register("image", { required: true })}
+              onChange={handleImagePreview}
             />
-            {errors.image && errors.image.type === "required" ? (
-              <p
-                style={{
-                  color: "red",
-                  fontSize: "13px",
-                  margin: 0,
-                  textAlign: "left",
-                }}
-              >
-                Image required
-              </p>
-            ) : null}
+            {errors.image && <p className="error">Image is required</p>}
+            {previewUrl && (
+              <div className="image-preview">
+                <img src={previewUrl} alt="Preview" width="200" />
+              </div>
+            )}
           </div>
+
+          {/* Description */}
           <div>
             <label>Description:</label>
-
-            {errors.description && errors.description.type === "required" ? (
-              <p
-                style={{
-                  color: "red",
-                  fontSize: "13px",
-                  margin: 0,
-                  textAlign: "left",
-                }}
-              >
-                Description required
-              </p>
-            ) : null}
             <textarea
-              {...register("description", { required: true })}
+              rows={6}
               cols={30}
-              rows={10}
-              name="description"
+              {...register("description", { required: true })}
               placeholder="Write your post here..."
-              //   value={formData.description}
-              //   onChange={handleChange}
-            ></textarea>
-            {errors.description && errors.description.type === "required" ? (
-              <p
-                style={{
-                  color: "red",
-                  fontSize: "13px",
-                  margin: 0,
-                  textAlign: "left",
-                }}
-              >
-                Description required
-              </p>
-            ) : null}
+            />
+            {errors.description && (
+              <p className="error">Description is required</p>
+            )}
           </div>
-          <button type="submit" className="post_btn">
-            Add Post
+
+          {/* Submit Button */}
+          <button type="submit" className="post_btn" disabled={loading}>
+            {loading ? "Creating post..." : "Add Post"}
           </button>
         </form>
       </div>

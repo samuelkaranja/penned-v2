@@ -2,10 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface Post {
+  id: number;
   title: string;
   subtitle: string;
-  image: FileList | string;
+  image: string; // usually the image URL or path returned by backend
   description: string;
+  createdAt: string;
+  updatedAt?: string;
+  author?: {
+    id: number;
+    username: string;
+  };
 }
 
 interface PostState {
@@ -51,11 +58,18 @@ export const createPost = createAsyncThunk<
 const postSlice = createSlice({
   name: "post",
   initialState,
-  reducers: {},
+  reducers: {
+    resetPost: (state) => {
+      state.post = null;
+      state.error = null;
+      state.loading = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createPost.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(createPost.fulfilled, (state, action) => {
         state.loading = false;
@@ -68,4 +82,5 @@ const postSlice = createSlice({
   },
 });
 
+export const { resetPost } = postSlice.actions;
 export default postSlice.reducer;
