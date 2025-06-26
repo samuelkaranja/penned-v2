@@ -1,0 +1,11 @@
+.commentsform {
+  /* max-width: 1170px;
+  margin: 0 auto; */
+  color: #000;
+}
+
+.commentsform textarea {
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+}

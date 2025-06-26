@@ -2,20 +2,27 @@ import React from "react";
 import { FaFacebook, FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
 import "./details.css";
+import { useParams } from "react-router-dom";
+import { allPosts } from "../PostList/PostList";
+//import CommentsForm from "../CommentsForm/CommentsForm";
 
 const Details: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+
+  const postDetails = allPosts.find((post) => post.id.toString() === id);
+
   return (
     <div className="details">
       <div className="more">
         <div className="blog-header">
-          <h1 className="title">Title</h1>
-          <h6 className="subtitle">Subtitle</h6>
+          <h1 className="title">{postDetails?.title}</h1>
+          <h6 className="subtitle">{postDetails?.subtitle}</h6>
         </div>
         <div className="author">
           <div className="name">
-            <small>Author: samuel</small>
+            <small>Author: {postDetails?.author},</small>
             <small>
-              Published: January 2025
+              Published: {postDetails?.created_at}
               {/* {new Date(selectedPost?.created_at).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
@@ -41,13 +48,13 @@ const Details: React.FC = () => {
           </div>
         </div>
         <div className="image">
-          <img src="" alt="" />
+          <img src={postDetails?.image} alt="" />
         </div>
         <div className="details">
-          <p>Description</p>
+          <p>{postDetails?.description}</p>
         </div>
       </div>
-      <div className="feedback">{/* <Comments /> */}</div>
+      <div className="feedback">{/* <CommentsForm /> */}</div>
     </div>
   );
 };

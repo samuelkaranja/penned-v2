@@ -3,14 +3,28 @@ import { Link } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import "./blogpost.css";
 
-const BlogPost: React.FC = () => {
+export interface BlogPostType {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: string;
+  description: string;
+  author: string;
+  created_at: string;
+}
+
+interface BlogPostProps {
+  post: BlogPostType;
+}
+
+const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
   return (
     <div className="post">
-      <img src="" alt="" />
+      <img src={post.image} alt="" />
       <div className="body">
         <div className="dl">
           <small style={{ fontSize: "11px" }}>
-            Created On: January 2025
+            Created On: {post.created_at}
             {/* {new Date(post?.created_at).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
@@ -21,12 +35,16 @@ const BlogPost: React.FC = () => {
             <CiHeart />
           </small>
         </div>
-        <Link to="" className="title">
-          Title
+        <Link to={`/details/${post.id}`} className="title">
+          {post.title}
         </Link>
-        <p className="subtitle">Subtitle</p>
+        <p className="subtitle">
+          {post.subtitle.length > 50
+            ? post?.subtitle.slice(0, 80) + "..."
+            : post?.subtitle}
+        </p>
         <small className="author">
-          author: samuel
+          author: {post.author.toLowerCase().split(" ")[0]}
           {/* {post?.author.toLowerCase().split(" ")[0]} */}
         </small>
       </div>

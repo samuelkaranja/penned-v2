@@ -1,0 +1,27 @@
+.detailspage {
+  display: flex;
+  width: 100%;
+}
+
+.detailspage .info {
+  width: 70%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.detailspage .topposts {
+  width: 30%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .detailspage {
+    flex-direction: column;
+  }
+
+  .detailspage .info,
+  .detailspage .topposts {
+    flex: 0 0 100%;
+  }
+}
