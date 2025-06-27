@@ -1,6 +1,7 @@
 .detailspage {
   display: flex;
-  width: 100%;
+  width: 1300px;
+  margin: 0 auto;
 }
 
 .detailspage .info {
@@ -9,10 +10,10 @@
   box-sizing: border-box;
 }
 
-.detailspage .topposts {
+.detailspage .postcard {
   width: 30%;
-  padding: 1rem;
   box-sizing: border-box;
+  margin-top: 25px;
 }
 
 @media (max-width: 768px) {

@@ -1,3 +1,46 @@
 .topposts {
   color: #000;
 }
+
+.topposts .top {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.topposts .top .image {
+  width: 110px;
+  height: 65px;
+  object-fit: cover;
+}
+
+.topposts .top .image img {
+  width: 100%;
+  height: 100%;
+}
+
+.topposts .top .more {
+  padding-left: 20px;
+}
+
+.topposts .top .more .title {
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  padding-bottom: 3px;
+}
+
+.topposts .top .more .title:hover {
+  text-decoration: underline;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.topposts .top .more .subtitle {
+  font-size: 13px;
+  font-weight: 400;
+  display: block;
+}

@@ -8,7 +8,7 @@ const DetailsPage: React.FC = () => {
       <div className="info">
         <Details />
       </div>
-      <div className="topposts">
+      <div className="postcard">
         <TopPosts />
       </div>
     </div>
