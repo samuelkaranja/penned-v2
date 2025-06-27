@@ -1,10 +1,9 @@
-//import { useContext, useState } from "react";
+//import { useState } from "react";
 import "./search.css";
 import { MdSearch } from "react-icons/md";
-//import { GlobalContext } from "../../context/context";
 
 const Search = () => {
-  //const { setSearchText } = useContext(GlobalContext);
+  //const [searchText, setSearchText] = useState("");
 
   return (
     <div className="search">

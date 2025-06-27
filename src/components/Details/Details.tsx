@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook, FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
 import "./details.css";
 import { useParams } from "react-router-dom";
 import { allPosts } from "../PostList/PostList";
+import CommentsForm from "../CommentsForm/CommentsForm";
 //import CommentsForm from "../CommentsForm/CommentsForm";
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-
   const postDetails = allPosts.find((post) => post.id.toString() === id);
+
+  const [btnToggle, setBtnToggle] = useState(false);
 
   return (
     <div className="details">
@@ -54,7 +56,15 @@ const Details: React.FC = () => {
           <p>{postDetails?.description}</p>
         </div>
       </div>
-      <div className="feedback">{/* <CommentsForm /> */}</div>
+      <div className="feedback">
+        <button
+          className="comment-btn"
+          onClick={() => setBtnToggle(!btnToggle)}
+        >
+          {btnToggle ? "Cancel" : "Comment"}
+        </button>
+        {btnToggle && <CommentsForm />}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,4 @@
 .details {
-  /* max-width: 1170px;
-  margin: 0 auto; */
   color: #000;
 }
 
@@ -63,6 +61,19 @@
 .details .more .details p {
   line-height: 1.75;
   color: #030712;
+}
+
+.details .feedback .comment-btn {
+  width: 10%;
+  background-color: green;
+  padding: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.details .feedback .comment-btn:hover {
+  cursor: pointer;
 }
 
 /* ........... Tablet ..............*/
