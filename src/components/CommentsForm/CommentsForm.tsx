@@ -8,9 +8,9 @@ const CommentsForm: React.FC = () => {
         <textarea
           name=""
           id=""
-          rows={8}
-          cols={60}
-          placeholder="Leave a Comment....."
+          rows={7}
+          cols={20}
+          placeholder="Post a Comment....."
         ></textarea>
         <button type="submit">Submit</button>
       </form>

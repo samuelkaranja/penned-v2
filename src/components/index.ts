@@ -9,6 +9,7 @@ export { default as CreatePost } from "./CreatePost/CreatePost";
 export { default as PostList } from "./PostList/PostList";
 export { default as Details } from "./Details/Details";
 export { default as CommentsForm } from "./CommentsForm/CommentsForm";
+export { default as Comments } from "./Comments/Comments";
 export { default as TopPosts } from "./TopPosts/TopPosts";
 export { default as UserDetails } from "./UserDetails/UserDetails";
 export { default as SignUpForm } from "./SignUpForm/SignUpForm";

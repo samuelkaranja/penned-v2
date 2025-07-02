@@ -4,8 +4,23 @@
 }
 
 .commentsform textarea {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   background-color: #fff;
   color: #000;
+}
+
+.commentsform textarea:focus {
+  outline: none;
+  border: 1px solid #000;
+}
+
+.commentsform button {
+  width: 93%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: none;
 }

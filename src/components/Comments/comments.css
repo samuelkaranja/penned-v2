@@ -1,0 +1,18 @@
+.comments {
+  margin-top: 15px;
+}
+
+.comments h3 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.comments .count {
+  color: #fff;
+  background-color: blue;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px;
+  border-radius: 5px;
+}

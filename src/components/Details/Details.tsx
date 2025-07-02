@@ -5,6 +5,7 @@ import "./details.css";
 import { useParams } from "react-router-dom";
 import { allPosts } from "../PostList/PostList";
 import CommentsForm from "../CommentsForm/CommentsForm";
+import Comments from "../Comments/Comments";
 //import CommentsForm from "../CommentsForm/CommentsForm";
 
 const Details: React.FC = () => {
@@ -61,9 +62,10 @@ const Details: React.FC = () => {
           className="comment-btn"
           onClick={() => setBtnToggle(!btnToggle)}
         >
-          {btnToggle ? "Cancel" : "Comment"}
+          {btnToggle ? "Close" : "Comment"}
         </button>
         {btnToggle && <CommentsForm />}
+        <Comments />
       </div>
     </div>
   );
