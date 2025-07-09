@@ -63,7 +63,7 @@ const Details: React.FC = () => {
           className="comment-btn"
           onClick={() => setBtnToggle(!btnToggle)}
         >
-          {btnToggle ? "Close" : "Comment"}
+          {btnToggle ? "Close" : "Add Comment"}
         </button>
         {btnToggle && <CommentsForm />}
       </div>

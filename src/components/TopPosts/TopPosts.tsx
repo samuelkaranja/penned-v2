@@ -1,6 +1,6 @@
 import React from "react";
 import "./topposts.css";
-import Image from "../../assets/frontend.jpg";
+import Image from "../../assets/code.jpg";
 
 const TopPosts: React.FC = () => {
   return (

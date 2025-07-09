@@ -2,9 +2,18 @@
   color: #000;
 }
 
+.topposts h3 {
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  justify-self: flex-end;
+}
+
 .topposts .top {
   display: flex;
   align-items: center;
+  width: 75%;
+  justify-self: flex-end;
   padding: 5px;
   margin-bottom: 10px;
   border: 1px solid lightgray;
@@ -14,12 +23,13 @@
 .topposts .top .image {
   width: 110px;
   height: 65px;
-  object-fit: cover;
 }
 
 .topposts .top .image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .topposts .top .more {
