@@ -1,11 +1,12 @@
 .comments {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .comments h3 {
   color: #000;
   font-size: 16px;
   font-weight: 400;
+  margin-bottom: 20px;
 }
 
 .comments .count {

@@ -58,6 +58,7 @@ const Details: React.FC = () => {
         </div>
       </div>
       <div className="feedback">
+        <Comments />
         <button
           className="comment-btn"
           onClick={() => setBtnToggle(!btnToggle)}
@@ -65,7 +66,6 @@ const Details: React.FC = () => {
           {btnToggle ? "Close" : "Comment"}
         </button>
         {btnToggle && <CommentsForm />}
-        <Comments />
       </div>
     </div>
   );

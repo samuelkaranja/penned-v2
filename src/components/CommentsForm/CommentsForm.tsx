@@ -12,7 +12,7 @@ const CommentsForm: React.FC = () => {
           cols={20}
           placeholder="Post a Comment....."
         ></textarea>
-        <button type="submit">Submit</button>
+        <button type="submit">Post Comment</button>
       </form>
     </div>
   );
