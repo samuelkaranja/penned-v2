@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import {
   CreatePostPage,
+  DashboardPage,
   DetailsPage,
   HomePage,
   LoginPage,
@@ -45,6 +46,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <ProfilePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <DashboardPage />
                 </PrivateRoute>
               }
             />

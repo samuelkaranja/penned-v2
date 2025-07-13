@@ -4,3 +4,4 @@ export { default as LoginPage } from "./LoginPage/LoginPage";
 export { default as SignUpPage } from "./SignUpPage/SignUpPage";
 export { default as CreatePostPage } from "./CreatePostPage/CreatePostPage";
 export { default as ProfilePage } from "./ProfilePage/ProfilePage";
+export { default as DashboardPage } from "./DashboardPage/DashboardPage";
