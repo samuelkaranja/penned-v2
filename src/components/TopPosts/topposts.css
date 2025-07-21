@@ -1,23 +1,27 @@
 .topposts {
+  width: 90%;
   color: #000;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 25px 0 0 20px;
+  margin-top: 25px;
 }
 
 .topposts h3 {
+  font-size: 22px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin: 3px 0 15px 0;
   text-decoration: underline;
-  justify-self: flex-end;
 }
 
 .topposts .top {
   display: flex;
   align-items: center;
-  width: 75%;
   justify-self: flex-end;
-  padding: 5px;
-  margin-bottom: 10px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
+  padding: 8px 5px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid lightgray;
 }
 
 .topposts .top .image {

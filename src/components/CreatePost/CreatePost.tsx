@@ -123,13 +123,6 @@ const CreatePost: React.FC = () => {
             <div className="blog-editor-container">
               <SimpleEditor />
             </div>
-
-            {/* <textarea
-              rows={6}
-              cols={30}
-              {...register("description", { required: true })}
-              placeholder="Write your post here..."
-            /> */}
             {errors.description && (
               <p className="error">Description is required</p>
             )}

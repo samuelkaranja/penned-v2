@@ -57,9 +57,7 @@
   width: 100%;
   box-sizing: border-box;
   font-size: 1rem;
-  padding: 1rem;
-  /* border-radius: 6px;
-  border: 1px solid #ccc; */
+  padding: 0.5rem;
   margin-top: 10px;
   background-color: #fff;
   line-height: 1.6;
@@ -106,22 +104,6 @@
   color: #fff;
   border-color: purple;
 }
-
-/* .createpost textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  font-family: "Helvetica", Arial, sans-serif;
-  line-height: 1.5;
-  color: #000;
-  background-color: #fff;
-}
-
-.createpost textarea:focus {
-  outline: none;
-  border: 1px solid lightgrey;
-} */
 
 .createpost .post_btn {
   display: block;
