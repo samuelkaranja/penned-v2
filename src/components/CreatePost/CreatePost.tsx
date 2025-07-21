@@ -6,6 +6,8 @@ import type { AppDispatch, RootState } from "../../store/store";
 import { createPost } from "../../store/slices/features/post/postSlice";
 import { resetPost } from "../../store/slices/features/post/postSlice";
 import { toast } from "react-toastify";
+//import { SimpleEditor } from "/@/components/tiptap-templates/simple/simple-editor";
+import { SimpleEditor } from "../../../@/components/tiptap-templates/simple/simple-editor";
 
 interface PostFormData {
   title: string;
@@ -17,6 +19,7 @@ interface PostFormData {
 const CreatePost: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { loading } = useSelector((state: RootState) => state.post);
+  //const [content, setContent] = useState("");
 
   const {
     register,
@@ -116,13 +119,17 @@ const CreatePost: React.FC = () => {
 
           {/* Description */}
           <div>
-            <label>Description:</label>
-            <textarea
+            <label>Content:</label>
+            <div className="blog-editor-container">
+              <SimpleEditor />
+            </div>
+
+            {/* <textarea
               rows={6}
               cols={30}
               {...register("description", { required: true })}
               placeholder="Write your post here..."
-            />
+            /> */}
             {errors.description && (
               <p className="error">Description is required</p>
             )}

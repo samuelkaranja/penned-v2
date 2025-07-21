@@ -1,7 +1,9 @@
 .createpost {
-  width: 1170px;
+  /* width: 1170px; */
   margin: 0 auto;
   color: #000;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }
 
 .createpost .success {
@@ -12,7 +14,7 @@
 }
 
 .createpost .frm {
-  width: 40%;
+  width: 55%;
   margin: 0 auto;
 }
 
@@ -37,7 +39,75 @@
   border: 1px solid lightgrey;
 }
 
-.createpost textarea {
+.blog-editor-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+  margin-top: 10px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Tiptap editor itself */
+.tiptap {
+  min-height: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 1rem;
+  /* border-radius: 6px;
+  border: 1px solid #ccc; */
+  margin-top: 10px;
+  background-color: #fff;
+  line-height: 1.6;
+  outline: none;
+  /* overflow: auto; */
+}
+
+.tiptap p {
+  margin: 0.5rem 0;
+}
+
+.tiptap img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tiptap h1,
+.tiptap h2 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tiptap a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.tiptap button {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  margin: 5px 5px 0 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tiptap button:hover {
+  background: #e2e2e2;
+}
+
+.tiptap button.is-active {
+  background: purple;
+  color: #fff;
+  border-color: purple;
+}
+
+/* .createpost textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid lightgrey;
@@ -51,7 +121,7 @@
 .createpost textarea:focus {
   outline: none;
   border: 1px solid lightgrey;
-}
+} */
 
 .createpost .post_btn {
   display: block;
@@ -91,7 +161,13 @@
 
 @media only screen and (max-width: 425px) {
   .createpost .frm {
-    width: 70%;
-    margin: 0 40px;
+    width: 85%;
+    margin: 0 auto;
+  }
+  .blog-editor-container {
+    padding: 0.5rem;
+  }
+  .tiptap {
+    padding: 0.5rem;
   }
 }
