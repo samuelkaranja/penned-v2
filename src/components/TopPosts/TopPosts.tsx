@@ -41,42 +41,6 @@ const TopPosts: React.FC = () => {
           </span>
         </div>
       </div>
-
-      <div className="top">
-        <div className="image">
-          <img src={Image} />
-        </div>
-        <div className="more">
-          <span className="title">Front-End Developer</span>
-          <span className="subtitle">
-            A frontend developer builds the user interface...
-          </span>
-        </div>
-      </div>
-
-      <div className="top">
-        <div className="image">
-          <img src={Image} />
-        </div>
-        <div className="more">
-          <span className="title">Front-End Developer</span>
-          <span className="subtitle">
-            A frontend developer builds the user interface...
-          </span>
-        </div>
-      </div>
-
-      <div className="top">
-        <div className="image">
-          <img src={Image} />
-        </div>
-        <div className="more">
-          <span className="title">Front-End Developer</span>
-          <span className="subtitle">
-            A frontend developer builds the user interface...
-          </span>
-        </div>
-      </div>
     </div>
   );
 };

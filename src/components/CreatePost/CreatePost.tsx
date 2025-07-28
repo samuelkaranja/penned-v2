@@ -6,14 +6,13 @@ import type { AppDispatch, RootState } from "../../store/store";
 import { createPost } from "../../store/slices/features/post/postSlice";
 import { resetPost } from "../../store/slices/features/post/postSlice";
 import { toast } from "react-toastify";
-//import { SimpleEditor } from "/@/components/tiptap-templates/simple/simple-editor";
 import { SimpleEditor } from "../../../@/components/tiptap-templates/simple/simple-editor";
 
 interface PostFormData {
   title: string;
   subtitle: string;
   image: FileList;
-  description: string;
+  content: string;
 }
 
 const CreatePost: React.FC = () => {
@@ -29,6 +28,7 @@ const CreatePost: React.FC = () => {
   } = useForm<PostFormData>();
 
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [editorContent, setEditorContent] = useState<string>("");
 
   useEffect(() => {
     return () => {
@@ -39,6 +39,11 @@ const CreatePost: React.FC = () => {
   }, [previewUrl]);
 
   const handlePostSubmit = async (data: PostFormData) => {
+    if (!editorContent.trim() || editorContent === "<p></p>") {
+      toast.error("Content is required.");
+      return;
+    }
+
     if (!data.image || data.image.length === 0) {
       toast.error("Image is required.");
       return;
@@ -47,7 +52,7 @@ const CreatePost: React.FC = () => {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("subtitle", data.subtitle);
-    formData.append("description", data.description);
+    formData.append("content", editorContent);
     formData.append("image", data.image[0]); // Upload first file
 
     // Debug: log fields
@@ -60,6 +65,7 @@ const CreatePost: React.FC = () => {
       toast.success("Post created successfully!");
       dispatch(resetPost());
       reset();
+      setEditorContent("");
       setPreviewUrl(null);
     } catch (error: any) {
       console.error("Post create error:", error);
@@ -117,15 +123,15 @@ const CreatePost: React.FC = () => {
             )}
           </div>
 
-          {/* Description */}
+          {/* Content */}
           <div>
             <label>Content:</label>
             <div className="blog-editor-container">
-              <SimpleEditor />
+              <SimpleEditor value={editorContent} onChange={setEditorContent} />
             </div>
-            {errors.description && (
-              <p className="error">Description is required</p>
-            )}
+            {/* {editorContent.trim() === "" && (
+              <p className="error">Content is required</p>
+            )} */}
           </div>
 
           {/* Submit Button */}

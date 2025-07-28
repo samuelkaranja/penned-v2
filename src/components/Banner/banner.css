@@ -29,8 +29,12 @@
 /* ............ Mobile ............... */
 
 @media only screen and (max-width: 425px) {
+  .banner {
+    height: 50vh;
+  }
+
   .banner .banner-text {
-    max-width: 85%;
+    max-width: 90%;
   }
 
   .banner .banner-text span {

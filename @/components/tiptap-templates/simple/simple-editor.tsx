@@ -181,7 +181,13 @@ const MobileToolbarContent = ({
   </>
 );
 
-export function SimpleEditor() {
+export function SimpleEditor({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (value: string) => void;
+}) {
   const isMobile = useIsMobile();
   const windowSize = useWindowSize();
   const [mobileView, setMobileView] = React.useState<
@@ -226,7 +232,10 @@ export function SimpleEditor() {
         onError: (error) => console.error("Upload failed:", error),
       }),
     ],
-    content,
+    content: value || "<p>Write your post content here...</p>",
+    onUpdate: ({ editor }) => {
+      onChange(editor.getHTML());
+    },
   });
 
   const bodyRect = useCursorVisibility({

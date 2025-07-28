@@ -1,8 +1,11 @@
 .search {
+  width: 100%;
   display: flex;
   align-items: center;
   background: #f9fafb;
   margin: 5px 0 25px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .search .search-icons {
@@ -21,4 +24,12 @@
 .search input:focus {
   outline: none;
   border: none;
+}
+
+/* ............ Mobile ............... */
+
+@media only screen and (max-width: 425px) {
+  .search {
+    width: 34%;
+  }
 }
